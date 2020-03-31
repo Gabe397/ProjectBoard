@@ -11,9 +11,7 @@ import DoneList from "./DoneList";
 class App extends React.Component {
     state = {
         tasks: [],
-        errorMessage: '',
-
-        toDo:[]
+        errorMessage: ''
     };
 
     componentDidMount() {
@@ -40,6 +38,7 @@ class App extends React.Component {
 
         this.setState({ tasks });
     };
+
 
     onUpdateTaskList = (newTaskList) => {
         this.setState({ tasks: newTaskList });
