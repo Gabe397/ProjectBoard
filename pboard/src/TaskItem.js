@@ -1,4 +1,5 @@
 import React from 'react';
+import AddTask from './AddTask';
 import styles from './styles.css';
 
 const TaskItem = props => {
@@ -11,9 +12,9 @@ const TaskItem = props => {
                         <p className="card-text">Type: {props.task.type}</p>
                     </div>
                 <button type="button"
-                        onClick={() => props.markDone(props.task)}
+                        onClick={() => props.moveProgress(props.task)}
                         className="btn btn-primary" style={{ float: 'right' }}>
-                        Done
+                        Move To Progress ->
                 </button>
 
                 </li>
