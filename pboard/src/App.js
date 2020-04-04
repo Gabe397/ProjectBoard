@@ -47,7 +47,7 @@ class App extends React.Component {
     };
 
     render() {
-        if (window.innerWidth > 700)
+
             return (
                 <div> <h1>Task Board</h1>
 
@@ -81,40 +81,7 @@ class App extends React.Component {
 
                 </div>
         );
-        else
-            return (
-                <div> <h1>Task Board</h1>
 
-                    <div className="container">
-                        <AddTask onSubmit={this.onAddTask} />
-                        <div NavBar id = "NavBar">
-                            <NavBar/>
-                        </div>
-
-                        <div className="row">
-                            <div className="col" id = "toDo">
-                                <h2>To Do</h2>
-                                <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
-                            </div>
-                            <div className="col" id = "Progress">
-                                <h2>In Progress</h2>
-                                <ProgressList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-
-                            </div>
-                            <div className="col" id = "Review">
-                                <h2>Review</h2>
-                                <ReviewList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-                            </div>
-                            <div className="col" id = "Done">
-                                <h2>Done</h2>
-                                <DoneList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            );
     }
 }
 
