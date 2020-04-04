@@ -7,6 +7,7 @@ import AddTask from './AddTask';
 import styles from './styles.css';
 import ProgressList from "./ProgressList";
 import DoneList from "./DoneList";
+import NavBar from "./NavBar";
 
 class App extends React.Component {
     state = {
@@ -32,7 +33,7 @@ class App extends React.Component {
         tasks.push({
             title: taskName,
             id: this.state.tasks.length + 1,
-            type: 'task',
+            type: 'feature',
             column: 'todo'
         });
 
@@ -40,40 +41,80 @@ class App extends React.Component {
     };
 
 
+
     onUpdateTaskList = (newTaskList) => {
         this.setState({ tasks: newTaskList });
     };
 
     render() {
-        return (
-            <div> <h1>Task Board</h1>
+        if (window.innerWidth > 700)
+            return (
+                <div> <h1>Task Board</h1>
 
-            <div className="container">
-                <AddTask onSubmit={this.onAddTask} />
-                <div className="row">
-                    <div className="col" id = "toDo">
-                        <h2>To Do</h2>
-                        <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
+                    <div NavBar id = "NavBar">
+                        <NavBar />
                     </div>
-                    <div className="col" id = "Progress">
-                        <h2>In Progress</h2>
-                        <ProgressList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
 
+                <div className="container">
+                    <AddTask onSubmit={this.onAddTask} />
+                    <div className="row">
+                        <div className="col" id = "toDo">
+                            <h2>To Do</h2>
+                            <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
+                        </div>
+                        <div className="col" id = "Progress">
+                            <h2>In Progress</h2>
+                            <ProgressList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+
+                        </div>
+                        <div className="col" id = "Review">
+                            <h2>Review</h2>
+                            <ReviewList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+                        </div>
+                        <div className="col" id = "Done">
+                            <h2>Done</h2>
+                            <DoneList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+                        </div>
                     </div>
-                    <div className="col" id = "Review">
-                        <h2>Review</h2>
-                        <ReviewList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-                    </div>
-                    <div className="col" id = "Done">
-                        <h2>Done</h2>
-                        <DoneList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-                    </div>
+
                 </div>
 
-            </div>
-
-            </div>
+                </div>
         );
+        else
+            return (
+                <div> <h1>Task Board</h1>
+
+                    <div className="container">
+                        <AddTask onSubmit={this.onAddTask} />
+                        <div NavBar id = "NavBar">
+                            <NavBar/>
+                        </div>
+
+                        <div className="row">
+                            <div className="col" id = "toDo">
+                                <h2>To Do</h2>
+                                <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
+                            </div>
+                            <div className="col" id = "Progress">
+                                <h2>In Progress</h2>
+                                <ProgressList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+
+                            </div>
+                            <div className="col" id = "Review">
+                                <h2>Review</h2>
+                                <ReviewList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+                            </div>
+                            <div className="col" id = "Done">
+                                <h2>Done</h2>
+                                <DoneList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            );
     }
 }
 
