@@ -1,0 +1,45 @@
+hr{
+    border-top:5px solid black;
+}
+
+#Done{
+    background-color: #d7d7d7;
+}
+
+#Review{
+    background-color: #b4b4b4;
+}
+
+#Progress{
+    background-color: #8e8e8e;
+}
+
+#toDo{
+    background-color: #787878;
+}
+
+.tItem{
+    margin:10px;
+}
+
+#NavBar{
+    margin:10px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    #Done {
+        display: none;
+    }
+    #Review {
+        display: none;
+    }
+    #Progress {
+        display: none;
+    }
+    #toDo{
+        display:inline;
+    }
+
+}
+
